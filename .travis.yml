@@ -1,4 +1,5 @@
 sudo: required
+language: node_js
 services:
   - docker
 
@@ -7,3 +8,15 @@ before_install:
 
 script:
   - docker run test/aws npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_ACCESS_KEY_SECRET
+  region: "us-east-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-692516308424"
+  bucket_path: "docker-react"
+  on:
+    branch: master
