@@ -13,18 +13,6 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  region: "us-east-2"
-  app: "my-docker"
-  env: "my-docker-env"
-  bucket_name: "elasticbeanstalk-us-east-2-692516308424"
-  bucket_path: "my-docker"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_ACCESS_KEY_SECRET
-
-deploy:
-  provider: elasticbeanstalk
   access_key_id:
     secure: "Encrypted AKIA2CPJQIXELVBYQR46="
   secret_access_key:
